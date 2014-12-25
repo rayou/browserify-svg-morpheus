@@ -2,7 +2,8 @@ var gulp = require('gulp'),
     jade = require('gulp-jade'),
     compass = require('gulp-compass'),
     changed = require('gulp-changed'),
-    browserify = require('gulp-browserify'),
+    browserify = require('browserify'),
+    transform = require('vinyl-transform'),
     livereload = require('gulp-livereload'),
     watch = require('gulp-watch'),
     http = require('http'),
@@ -77,10 +78,13 @@ gulp.task('compass', function(){
 })
 
 gulp.task('browserify', function(){
+    var browserified = transform(function(filename) {
+        var b = browserify(filename);
+        return b.bundle();
+    });
+
     return gulp.src(path.src + 'js/app.js')
-    .pipe(browserify({
-        debug: env.dev
-    }))
+    .pipe(browserified)
     .pipe(gulp.dest(path.dist + 'js/'))
     .pipe(livereload())
 })
