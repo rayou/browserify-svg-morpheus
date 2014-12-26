@@ -6,8 +6,18 @@
   "dependencies": {
     "gulp": "^3.8.10"
   },
+  "browser": {
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
+  "browserify-shim": {
+  },
   "devDependencies": {
-    "browserify": "^8.0.1",
+    "browserify": "~7.1.0",
+    "browserify-shim": "^3.8.1",
     "gulp": "^3.8.10",
     "gulp-changed": "^1.1.0",
     "gulp-compass": "^2.0.3",
