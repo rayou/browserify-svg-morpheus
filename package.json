@@ -26,7 +26,6 @@
     "gulp-watch": "^3.0.0",
     "http": "0.0.0",
     "st": "^0.5.2",
-    "vinyl-source-stream": "^1.0.0",
     "vinyl-transform": "^1.0.0"
   },
   "scripts": {
